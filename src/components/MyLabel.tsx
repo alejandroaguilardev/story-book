@@ -17,10 +17,14 @@ interface MyLabelProps {
 	 * color label class
 	 */
 	color?: "primary" | "secondary" | "tertiary";
-    	/**
+	/**
 	 * color custom font color
 	 */
-    fontColor?:string;
+	fontColor?: string;
+	/**
+	 * color custom font color
+	 */
+	backgroundColor?: string;
 }
 /**
  * Primary UI component for user interaction
@@ -30,11 +34,14 @@ export const MyLabel = ({
 	color = "primary",
 	label = "no Label",
 	size = "normal",
-    fontColor,
+	fontColor,
+	backgroundColor='transparent'
 }: MyLabelProps) => {
 	return (
-		<span className={`label ${size} text-${color}`}
-        style={{color:fontColor}}>
+		<span
+			className={`label ${size} text-${color}`}
+			style={{ color: fontColor, backgroundColor }}
+		>
 			{allCaps ? label.toUpperCase() : label}
 		</span>
 	);
